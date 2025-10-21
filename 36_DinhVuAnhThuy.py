@@ -33,3 +33,28 @@ def print_student_list():
                   f"Nam sinh: {sv.get('year_of_birth', 'Chua co nam sinh')}, "
                   f"Dia chi: {sv.get('address', 'Chua co dia chi')}")
                   
+
+
+def search_student(search_name):
+    """
+    YÊU CẦU 3: Hoàn thiện hàm này.
+    - In ra tiêu đề "--- KET QUA TIM KIEM ---".
+    - Tìm kiếm trong `student_list` tất cả các sinh viên có tên (không phân biệt hoa thường)
+      chứa `search_name`.
+    - In ra thông tin của các sinh viên tìm thấy (theo định dạng như hàm print_student_list).
+    - Nếu không tìm thấy, in ra "Khong tim thay sinh vien nao.".
+    """
+    print("--- KET QUA TIM KIEM ---")
+    i = 0
+    found = False
+    while i < len(student_list):
+        sv = student_list[i]
+        if search_name.lower() in sv["name"].lower():
+            print(" - Ten: {}, Nam sinh: {}, Dia chi: {}".format(
+                sv["name"], sv["year_of_birth"], sv["address"]
+            ))
+            found = True
+        i += 1
+
+    if not found:
+        print("Khong tim thay sinh vien nao.")
